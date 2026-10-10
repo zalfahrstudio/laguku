@@ -28,7 +28,7 @@ const playlists = {
     ["DJ Ikhlas", "lagu16.mp3", "cover3.jpg"],
     ["DJ Los Dol", "lagu17.mp3", "cover3.jpg"],
     ["DJ Negoro Angin", "lagu18.mp3", "cover3.jpg"],
-    ["DJ Sinarengan Jono Joni", "lagu18.mp3", "cover3.jpg"],
+    ["DJ Sinarengan Jono Joni", "lagu19.mp3", "cover3.jpg"],
   ],
 
   barat: [
