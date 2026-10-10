@@ -10,7 +10,7 @@
 
 const playlists = {
   jawa: [
-    ["DJ All In For You", "https://drive.google.com/file/d/1_a8ILDswo6YeIa8DqcidIpdT3dJ5OrzD/preview"", "cover1.PNG"],
+    ["DJ All In For You", "https://drive.google.com/file/d/1_a8ILDswo6YeIa8DqcidIpdT3dJ5OrzD/preview", "cover1.PNG"],
     ["DJ Tulus", "lagu2.mp3", "cover2.PNG"],
     ["DJ Sigar", "lagu3.mp3", "cover3.PNG"],
     ["DJ Denok", "lagu4.mp3", "cover4.PNG"],
