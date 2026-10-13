@@ -99,7 +99,7 @@ const playlists = {
     ["Raim Laode - Lesung Pipi", "pop13.mp3", "coverviral1.jpg"],
     ["ST12 - Putri Iklan", "pop14.mp3", "coverviral1.jpg"],
     ["Papinka - Masih Mencintainya", "pop15.mp3", "coverviral1.jpg"],
-    ["Element - Rahasia Hati", "pop16.mp3", "coverviral1.jpg"],
+    ["Nidji - Rahasia Hati", "pop16.mp3", "coverviral1.jpg"],
     ["Feast - Nina", "pop17.mp3", "coverviral1.jpg"],
     ["Dash uchiha - Merindukanmu", "pop18.mp3", "coverviral1.jpg"],
     [
