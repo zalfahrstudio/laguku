@@ -389,7 +389,7 @@ function renderPlaylist() {
 
     const artist = document.createElement("span");
     artist.className = "row-artist";
-    artist.textContent = categoryNames[category];
+    artist.textContent = song.artist;
 
     text.append(name, artist);
     info.append(img, text);
