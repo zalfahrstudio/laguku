@@ -1081,3 +1081,39 @@ audio.addEventListener("play", updateMobilePlayerView);
 audio.addEventListener("pause", updateMobilePlayerView);
 window.addEventListener("resize", updateMobilePlayerView);
 updateMobilePlayerView();
+
+/* ===== KLIK MINI PLAYER UNTUK KEMBALI KE NOW PLAYING ===== */
+const miniPlayerCover = document.querySelector(
+  ".player .now-playing img, .player .track-art img, .player #playerCover"
+);
+
+const miniPlayerInfo = document.querySelector(
+  ".player .now-playing .now-meta, .player .now-meta"
+);
+
+function openNowPlayingFromMiniPlayer() {
+  if (!currentSong) return;
+
+  // Aktifkan kembali tampilan Now Playing di mobile.
+  if (window.matchMedia("(max-width: 650px)").matches) {
+    document.body.classList.add("mobile-player-active");
+  }
+}
+
+// Klik cover kecil di footer.
+if (miniPlayerCover) {
+  miniPlayerCover.style.cursor = "pointer";
+  miniPlayerCover.addEventListener(
+    "click",
+    openNowPlayingFromMiniPlayer
+  );
+}
+
+// Klik judul atau informasi lagu di footer.
+if (miniPlayerInfo) {
+  miniPlayerInfo.style.cursor = "pointer";
+  miniPlayerInfo.addEventListener(
+    "click",
+    openNowPlayingFromMiniPlayer
+  );
+}
