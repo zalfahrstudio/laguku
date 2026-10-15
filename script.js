@@ -654,7 +654,7 @@ audio.addEventListener("error", () => {
 /* INISIALISASI */
 playlistTitle.textContent = categoryNames[category];
 renderPlaylist();
-playSong(0, false);
+// Jangan memanggil playSong() sebelum pengguna memilih lagu.
 
 function getSongDuration(song) {
   return new Promise((resolve) => {
