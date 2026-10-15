@@ -442,8 +442,8 @@ async function playSong(index, autoplay = true) {
 
   songTitle.textContent = currentSong.title;
   miniTitle.textContent = currentSong.title;
-  songArtist.textContent = categoryNames[category];
-  miniArtist.textContent = categoryNames[category];
+  songArtist.textContent = currentSong.artist;
+  miniArtist.textContent = currentSong.artist;
   songCategory.textContent = categoryNames[category];
   playingStatus.textContent = "Memuat lagu...";
 
