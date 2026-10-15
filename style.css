@@ -1,0 +1,1854 @@
+:root {
+  --bg: #101010;
+  --panel: #181818;
+  --panel-hover: #242424;
+  --blue: #00d4ff;
+  --text: #ffffff;
+  --muted: #a7a7a7;
+  --line: #303030;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+button,
+input {
+  font: inherit;
+}
+button {
+  color: inherit;
+}
+button:focus-visible,
+input:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 3px;
+}
+
+.app {
+  min-height: 100vh;
+  padding-bottom: 142px;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 18px;
+  padding: 20px 5%;
+  background: #080808;
+}
+
+.brand {
+  font-size: 23px;
+  font-weight: 800;
+}
+.brand span {
+  color: var(--blue);
+}
+
+.search {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: min(340px, 60%);
+  padding: 10px 14px;
+  border-radius: 24px;
+  background: #252525;
+  color: var(--blue);
+}
+
+.search input {
+  width: 100%;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: white;
+}
+
+main {
+  width: min(1000px, 92%);
+  margin: auto;
+}
+
+.hero {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  padding: 34px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.hero-cover {
+  width: clamp(140px, 26vw, 250px);
+  aspect-ratio: 1;
+  flex-shrink: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #202830;
+  box-shadow: 0 0 28px #00d4ff24;
+}
+
+.hero-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition:
+    opacity 0.25s,
+    transform 0.4s;
+}
+
+.hero-cover img.changing {
+  opacity: 0.35;
+  transform: scale(0.97);
+}
+
+.eyebrow {
+  color: var(--blue);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.hero-info h1 {
+  margin: 12px 0 8px;
+  font-size: clamp(24px, 4vw, 43px);
+  overflow-wrap: anywhere;
+}
+
+.hero-info p {
+  color: var(--muted);
+}
+.hero-tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.hero-tags span {
+  padding: 7px 10px;
+  border: 1px solid #333;
+  border-radius: 18px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.library {
+  padding: 26px 0;
+}
+.section-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.section-heading h2 {
+  margin: 8px 0 18px;
+}
+.section-heading > span {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 22px;
+}
+
+.tab {
+  border: 1px solid #383838;
+  background: #202020;
+  border-radius: 22px;
+  padding: 10px 17px;
+  cursor: pointer;
+  transition:
+    background 0.2s,
+    color 0.2s,
+    transform 0.2s;
+}
+
+.tab:hover {
+  transform: translateY(-2px);
+  border-color: var(--blue);
+}
+.tab.active {
+  color: #00151b;
+  background: var(--blue);
+  border-color: var(--blue);
+  font-weight: 700;
+}
+
+.list-heading,
+.song-row {
+  display: grid;
+  grid-template-columns: 35px minmax(0, 1fr) 65px;
+  align-items: center;
+  gap: 12px;
+}
+
+.list-heading {
+  padding: 10px 12px;
+  color: var(--muted);
+  border-bottom: 1px solid var(--line);
+  font-size: 12px;
+}
+
+.playlist {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.song-row {
+  padding: 9px 12px;
+  min-height: 68px;
+  border-radius: 7px;
+  cursor: pointer;
+  transition:
+    background 0.18s,
+    transform 0.18s;
+}
+
+.song-row:hover {
+  background: var(--panel-hover);
+}
+.song-row:active {
+  transform: scale(0.995);
+}
+.song-row.active {
+  background: #10262b;
+}
+.song-row.active .row-title,
+.song-row.active .row-number {
+  color: var(--blue);
+}
+
+.row-number {
+  color: var(--muted);
+  font-size: 13px;
+}
+.row-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+
+.row-cover {
+  width: 46px;
+  height: 46px;
+  flex-shrink: 0;
+  object-fit: cover;
+  border-radius: 5px;
+  background: #252525;
+}
+
+.row-text {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  min-width: 0;
+}
+.row-title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 14px;
+}
+.row-artist {
+  color: var(--muted);
+  font-size: 12px;
+}
+.row-duration {
+  color: var(--muted);
+  font-size: 12px;
+  text-align: right;
+}
+.empty {
+  color: var(--muted);
+  padding: 24px 0;
+}
+
+.player {
+  position: fixed;
+  z-index: 10;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  min-height: 112px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(240px, 1.5fr) minmax(90px, 0.6fr);
+  align-items: center;
+  gap: 24px;
+  padding: 16px 4%;
+  background: #181818;
+  border-top: 1px solid #303030;
+  box-shadow: 0 -8px 30px #0005;
+}
+
+.current-track {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+.current-track img {
+  width: 54px;
+  height: 54px;
+  object-fit: cover;
+  border-radius: 5px;
+  background: #252525;
+}
+.current-text {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+.current-text strong,
+.current-text span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.current-text strong {
+  font-size: 13px;
+}
+.current-text span {
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.player-center {
+  min-width: 0;
+}
+
+/* ===== KONTROL PEMUTAR MUSIK ===== */
+
+.controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(12px, 3vw, 26px);
+  margin-bottom: 12px;
+}
+
+.icon-btn,
+.play-btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  border: none;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition:
+    transform 0.18s ease,
+    color 0.18s ease,
+    background 0.18s ease,
+    box-shadow 0.18s ease;
+}
+
+.icon-btn {
+  width: 38px;
+  height: 38px;
+  padding: 9px;
+  border-radius: 50%;
+  color: #b3b3b3;
+  background: transparent;
+}
+
+.icon-btn svg {
+  width: 100%;
+  height: 100%;
+  fill: currentColor;
+}
+
+.icon-btn:hover {
+  color: #00d4ff;
+  background: #00d4ff12;
+}
+
+.icon-btn.enabled {
+  color: #00d4ff;
+}
+
+.main-control {
+  width: 44px;
+  height: 44px;
+  padding: 11px;
+  color: #ffffff;
+}
+
+.main-control:hover {
+  color: #00d4ff;
+  transform: scale(1.08);
+}
+
+.play-btn {
+  width: 58px;
+  height: 58px;
+  padding: 0;
+  border-radius: 50%;
+  background: #00d4ff;
+  color: #00151b;
+  box-shadow: 0 0 18px #00d4ff30;
+}
+
+.play-btn svg {
+  width: 25px;
+  height: 25px;
+  fill: currentColor;
+}
+
+.play-btn:hover {
+  transform: scale(1.07);
+  box-shadow: 0 0 28px #00d4ff65;
+}
+
+.play-btn:active,
+.icon-btn:active {
+  transform: scale(0.92);
+}
+
+@media (max-width: 650px) {
+  .controls {
+    justify-content: center;
+    gap: clamp(8px, 3vw, 18px);
+    margin-bottom: 10px;
+  }
+
+  .icon-btn {
+    width: 34px;
+    height: 34px;
+    padding: 8px;
+  }
+
+  .main-control {
+    width: 40px;
+    height: 40px;
+    padding: 10px;
+  }
+
+  .play-btn {
+    width: 52px;
+    height: 52px;
+  }
+
+  .play-btn svg {
+    width: 23px;
+    height: 23px;
+  }
+}
+
+.timeline {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.timeline span {
+  color: var(--muted);
+  font-size: 11px;
+  font-variant-numeric: tabular-nums;
+}
+
+input[type="range"] {
+  accent-color: var(--blue);
+  cursor: pointer;
+}
+
+#seekBar {
+  flex: 1;
+  width: 100%;
+  height: 4px;
+}
+.volume-control {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  color: var(--blue);
+}
+#volumeBar {
+  width: 90px;
+  max-width: 100%;
+}
+
+.notice {
+  position: fixed;
+  z-index: 20;
+  left: 50%;
+  bottom: 125px;
+  transform: translate(-50%, 10px);
+  padding: 10px 16px;
+  border: 1px solid #174b58;
+  border-radius: 9px;
+  background: #152328;
+  color: var(--blue);
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    opacity 0.2s,
+    transform 0.2s;
+  font-size: 13px;
+}
+
+.notice.show {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+@media (max-width: 650px) {
+  .app {
+    padding-bottom: 174px;
+  }
+  .topbar {
+    padding: 16px 4%;
+  }
+  .brand {
+    font-size: 19px;
+  }
+  .hero {
+    gap: 16px;
+    padding: 24px 0;
+  }
+  .hero-cover {
+    width: 38%;
+  }
+  .hero-info h1 {
+    font-size: 22px;
+  }
+  .hero-info p {
+    font-size: 12px;
+  }
+  .hero-tags span {
+    font-size: 10px;
+  }
+  .player {
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 12px;
+    padding: 12px 4%;
+    min-height: 150px;
+  }
+  .current-track {
+    grid-column: 1 / -1;
+  }
+  .current-track img {
+    width: 42px;
+    height: 42px;
+  }
+  .player-center {
+    grid-column: 1;
+  }
+  .controls {
+    justify-content: flex-start;
+    gap: 13px;
+    margin-bottom: 8px;
+  }
+  .play-btn {
+    width: 35px;
+    height: 35px;
+  }
+  .volume-control {
+    grid-column: 2;
+    grid-row: 2;
+  }
+  #volumeBar {
+    width: 65px;
+  }
+  .notice {
+    bottom: 160px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+  }
+}
+/* FIX IKON PLAY / PAUSE */
+#playBtn {
+  appearance: none;
+  -webkit-appearance: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 58px;
+  height: 58px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: #00d4ff;
+  color: #00151b;
+  box-shadow: 0 0 22px #00d4ff55;
+  font-size: 0;
+  line-height: 1;
+  cursor: pointer;
+}
+
+#playBtn svg {
+  display: block;
+  width: 25px;
+  height: 25px;
+  fill: #00151b;
+  flex-shrink: 0;
+}
+
+#playBtn:hover {
+  background: #35ddff;
+  transform: scale(1.06);
+  box-shadow: 0 0 30px #00d4ff88;
+}
+
+#playBtn:active {
+  transform: scale(0.94);
+}
+
+#playBtn:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 4px;
+}
+
+@media (max-width: 650px) {
+  #playBtn {
+    width: 52px;
+    height: 52px;
+  }
+
+  #playBtn svg {
+    width: 23px;
+    height: 23px;
+  }
+} /* Pastikan semua lagu bisa di-scroll di HP */
+html {
+  min-height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+body {
+  min-height: 100vh;
+  height: auto;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.app {
+  min-height: 100vh;
+  height: auto;
+  overflow: visible;
+}
+
+.library {
+  overflow: visible;
+}
+
+.playlist {
+  max-height: none;
+  height: auto;
+  overflow: visible;
+  padding-bottom: 20px;
+}
+
+@media (max-width: 650px) {
+  .app {
+    padding-bottom: 190px;
+  }
+
+  .playlist {
+    max-height: none;
+    overflow: visible;
+  }
+} /* ===== TEKS BERJALAN NEON BIRU ===== */
+
+.message-ticker {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 20px 0;
+  padding: 14px 16px;
+  overflow: hidden;
+  border: 1px solid #00d4ff45;
+  border-radius: 12px;
+  background: linear-gradient(90deg, #071d24, #101010);
+  box-shadow: 0 0 18px #00d4ff12;
+}
+
+.ticker-icon {
+  flex-shrink: 0;
+  color: #00d4ff;
+  font-size: 23px;
+  text-shadow: 0 0 12px #00d4ff;
+}
+
+.ticker-window {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  -webkit-mask-image: linear-gradient(
+    90deg,
+    transparent,
+    #000 3%,
+    #000 97%,
+    transparent
+  );
+  mask-image: linear-gradient(
+    90deg,
+    transparent,
+    #000 3%,
+    #000 97%,
+    transparent
+  );
+}
+
+/* ===== TEKS BERJALAN NEON BIRU ===== */
+
+.message-ticker {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 20px 0;
+  padding: 14px 16px;
+  overflow: hidden;
+  border: 1px solid #00d4ff45;
+  border-radius: 12px;
+  background: linear-gradient(90deg, #071d24, #101010);
+  box-shadow: 0 0 18px #00d4ff12;
+}
+
+.ticker-icon {
+  flex-shrink: 0;
+  color: #00d4ff;
+  font-size: 23px;
+  text-shadow: 0 0 12px #00d4ff;
+}
+
+.ticker-window {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  -webkit-mask-image: linear-gradient(
+    90deg,
+    transparent,
+    #000 3%,
+    #000 97%,
+    transparent
+  );
+  mask-image: linear-gradient(
+    90deg,
+    transparent,
+    #000 3%,
+    #000 97%,
+    transparent
+  );
+}
+
+.ticker-window {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
+}
+
+.ticker-track {
+  display: flex;
+  width: max-content;
+  animation: tickerMove 20s linear infinite;
+  will-change: transform;
+}
+
+.ticker-track span {
+  display: block;
+  flex: 0 0 auto;
+  padding-right: 60px;
+}
+
+@keyframes tickerMove {
+  0% {
+    transform: translateX(100vw);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ticker-track {
+    animation: none;
+  }
+}
+
+@media (max-width: 650px) {
+  .message-ticker {
+    margin: 14px 0;
+    padding: 12px;
+  }
+
+  .ticker-track span {
+    font-size: 13px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ticker-track {
+    animation: none;
+  }
+}
+
+@media (max-width: 650px) {
+  .message-ticker {
+    margin: 14px 0;
+    padding: 12px;
+  }
+
+  .ticker-track span {
+    font-size: 13px;
+  }
+}
+/* ===== INDIKATOR DRAG & DROP PLAYLIST ===== */
+
+.song-row {
+  position: relative;
+  transition:
+    background 0.18s ease,
+    border-color 0.18s ease,
+    transform 0.18s ease;
+  border-top: 2px solid transparent;
+}
+
+.song-row[draggable="true"] {
+  cursor: grab;
+}
+
+/* Baris yang sedang diangkat */
+.song-row.dragging {
+  opacity: 0.45;
+  background: #00d4ff20;
+  border: 1px dashed #00d4ff;
+  cursor: grabbing;
+}
+
+/* Garis penanda posisi tujuan */
+.song-row.drag-over {
+  border-top: 3px solid #00d4ff;
+  background: #00d4ff12;
+  box-shadow: inset 0 3px 0 #00d4ff;
+}
+
+/* Efek neon pada baris tujuan */
+.song-row.drag-over .row-title {
+  color: #00d4ff;
+  text-shadow: 0 0 8px #00d4ff50;
+}
+
+/* Sedikit efek saat diseret */
+.song-row.dragging .row-cover {
+  box-shadow: 0 0 12px #00d4ff80;
+}
+
+/* ===== DROPDOWN PENCARIAN SEMUA LAGU ===== */
+
+.search-suggestions {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  display: none;
+  max-height: 360px;
+  overflow-y: auto;
+  background: #171a1d;
+  border: 1px solid #00d4ff55;
+  border-radius: 12px;
+  box-shadow:
+    0 10px 30px #0009,
+    0 0 15px #00d4ff12;
+}
+
+.search-suggestions.show {
+  display: block;
+}
+
+.search-suggestion {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 12px;
+  color: #fff;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid #ffffff10;
+  text-align: left;
+  cursor: pointer;
+}
+
+.search-suggestion:hover,
+.search-suggestion:focus {
+  background: #00d4ff18;
+  outline: none;
+}
+
+.search-suggestion img {
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+  object-fit: cover;
+  border-radius: 7px;
+}
+
+.search-suggestion-info {
+  display: flex;
+  flex: 1;
+  min-width: 0;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.search-suggestion-title {
+  overflow: hidden;
+  font-size: 14px;
+  font-weight: 600;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.search-suggestion-category {
+  color: #00d4ff;
+  font-size: 12px;
+}
+
+.search-suggestion-empty {
+  padding: 16px;
+  color: #aaa;
+  font-size: 13px;
+}
+
+/* ===== BANNER LANDSCAPE TRANSPARAN ===== */
+
+.hero {
+  gap: 28px;
+}
+
+.hero-info {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+  padding: 28px 30px;
+  overflow: hidden;
+  border: 1px solid rgba(0, 212, 255, 0.28);
+  border-radius: 18px;
+
+  background: linear-gradient(
+    110deg,
+    rgba(0, 212, 255, 0.15),
+    rgba(15, 25, 35, 0.78) 55%,
+    rgba(0, 212, 255, 0.07)
+  );
+
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  box-shadow:
+    0 8px 28px rgba(0, 0, 0, 0.18),
+    inset 0 0 25px rgba(0, 212, 255, 0.035);
+}
+
+.hero-info::before {
+  content: "";
+  position: absolute;
+  top: -70px;
+  right: -45px;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: rgba(0, 212, 255, 0.09);
+  filter: blur(45px);
+  pointer-events: none;
+}
+
+.hero-info > * {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-info h1 {
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 650px) {
+  .hero {
+    gap: 16px;
+  }
+
+  .hero-info {
+    padding: 18px;
+  }
+}
+/* ===== RAPATKAN JARAK HERO DAN TICKER ===== */
+
+.hero {
+  margin-bottom: 20px !important;
+  min-height: auto !important;
+  align-items: center;
+}
+
+.message-ticker {
+  margin-top: 12px !important;
+  margin-bottom: 24px !important;
+}
+
+/* Hilangkan ruang kosong berlebih di area utama */
+main,
+.main-content {
+  padding-bottom: 20px !important;
+}
+
+/* Pastikan banner tidak memaksa tinggi berlebih */
+.hero-info {
+  min-height: 0 !important;
+  height: auto;
+}
+
+/* PERBAIKAN JARAK KOSONG MYMUSIC */
+
+.hero {
+  height: auto !important;
+  min-height: 0 !important;
+  margin-bottom: 0 !important;
+  padding-bottom: 12px !important;
+}
+
+.message-ticker {
+  position: relative;
+  margin-top: 12px !important;
+  margin-bottom: 24px !important;
+  transform: none !important;
+}
+
+/* Hilangkan tinggi minimum yang berlebihan */
+main,
+.main-content,
+.hero + .message-ticker {
+  min-height: 0 !important;
+  height: auto !important;
+}
+
+/* Hindari ruang kosong akibat elemen hero */
+.hero-info {
+  height: auto !important;
+  min-height: 0 !important;
+  margin-bottom: 0 !important;
+  padding-bottom: 20px !important;
+}
+/* Tata letak hero dan ticker */
+.hero {
+  padding: 34px 0 20px;
+  margin: 0;
+  min-height: 0;
+}
+
+.message-ticker {
+  margin: 12px 0 24px !important;
+  position: relative;
+}
+
+/* Pastikan area utama tidak menambah ruang kosong */
+main {
+  height: auto;
+  min-height: 0;
+}
+
+.library {
+  padding-top: 8px;
+}
+
+/* ===== SPLASH SCREEN MYMUSIC ===== */
+
+.splash-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(
+    circle at center,
+    #08232e 0%,
+    #080d12 42%,
+    #050505 100%
+  );
+  opacity: 1;
+  visibility: visible;
+  transition:
+    opacity 0.65s ease,
+    visibility 0.65s ease;
+}
+
+.splash-screen.hide {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.splash-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  animation: splashEnter 0.9s ease both;
+}
+
+.splash-logo {
+  width: min(72vw, 300px);
+  aspect-ratio: 1 / 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  animation: logoGlow 1.8s ease-in-out infinite alternate;
+}
+
+.splash-logo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.splash-content h1 {
+  margin: 24px 0 8px;
+  color: #fff;
+  font-size: clamp(38px, 8vw, 56px);
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-shadow: 0 0 24px #00d4ff45;
+}
+
+.splash-tagline {
+  margin: 0;
+  color: #00d4ff;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 3px;
+}
+
+.splash-equalizer {
+  height: 34px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 28px;
+}
+
+.splash-equalizer span {
+  width: 4px;
+  height: 10px;
+  border-radius: 5px;
+  background: #00d4ff;
+  box-shadow: 0 0 8px #00d4ff70;
+  animation: equalizerMove 0.8s ease-in-out infinite alternate;
+}
+
+.splash-equalizer span:nth-child(2n) {
+  animation-delay: 0.2s;
+}
+
+.splash-equalizer span:nth-child(3n) {
+  animation-delay: 0.4s;
+}
+
+.splash-loading {
+  margin-top: 12px;
+  color: #8ba5af;
+  font-size: 12px;
+  letter-spacing: 0.5px;
+}
+
+@keyframes splashEnter {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes logoGlow {
+  from {
+    box-shadow:
+      0 0 12px #00d4ff35,
+      inset 0 0 12px #00d4ff10;
+  }
+  to {
+    box-shadow:
+      0 0 32px #00d4ff80,
+      inset 0 0 24px #00d4ff25;
+  }
+}
+
+@keyframes equalizerMove {
+  from {
+    height: 7px;
+  }
+  to {
+    height: 30px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .splash-content,
+  .splash-logo,
+  .splash-equalizer span {
+    animation: none;
+  }
+
+  .splash-screen {
+    transition: none;
+  }
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+}
+
+.brand-logo {
+  width: 34px;
+  height: 34px;
+  object-fit: contain;
+  border-radius: 7px;
+}
+
+/* Hilangkan kotak di sekitar logo splash screen */
+.splash-logo,
+.splash-content img {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  background: transparent !important;
+  border-radius: 0;
+  object-fit: contain;
+}
+/* Informasi detail lagu Zwara Music */
+.song-artist {
+  margin: 10px 0 14px;
+  color: #00d4ff;
+  font-size: 16px;
+  font-weight: 600;
+}
+.song-details {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-bottom: 14px;
+  color: #d5e5f0;
+  font-size: 13px;
+}
+.detail-label {
+  color: #91a5bc;
+}
+.song-bio {
+  max-width: 680px;
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid #ffffff20;
+}
+.song-bio h3 {
+  margin: 0 0 7px;
+  color: #00d4ff;
+  font-size: 13px;
+  font-weight: 700;
+}
+.song-bio p {
+  margin: 0;
+  color: #d0dbe7;
+  font-size: 13px;
+  line-height: 1.7;
+}
+@media (max-width: 600px) {
+  .song-bio p {
+    font-size: 12px;
+  }
+}
+/* Optimasi animasi ticker Zwara Music */
+.ticker-window {
+  min-width: 0;
+  overflow: hidden;
+  contain: paint;
+}
+
+.ticker-track {
+  display: flex;
+  width: max-content;
+  animation: tickerMove 24s linear infinite;
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+.ticker-track span {
+  display: block;
+  flex: 0 0 auto;
+  white-space: nowrap;
+}
+/* ===== RAPATKAN COVER DAN BIO DI HP ===== */
+
+@media (max-width: 650px) {
+  .hero {
+    display: grid;
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  .hero-cover {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: auto;
+    min-height: 0;
+    align-self: stretch;
+  }
+
+  .hero-cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .hero-info {
+    width: 100%;
+    min-width: 0;
+    height: 100%;
+    min-height: 0;
+    padding: 16px 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .hero-info h1 {
+    font-size: clamp(17px, 4.5vw, 22px);
+    line-height: 1.3;
+    overflow-wrap: anywhere;
+  }
+
+  .song-artist {
+    font-size: 13px;
+  }
+
+  .song-details {
+    flex-wrap: wrap;
+    gap: 5px;
+    font-size: 12px;
+  }
+
+  .song-bio {
+    min-width: 0;
+    margin-top: 8px;
+    padding-top: 8px;
+  }
+
+  .song-bio h3 {
+    font-size: 12px;
+  }
+
+  .song-bio p {
+    font-size: 11px;
+    line-height: 1.5;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+  }
+
+  .song-meta {
+    margin-top: 8px;
+  }
+}
+
+/* ===== KATEGORI BERGAMBAR ZWARA MUSIC: PC & HP ===== */
+
+.tabs {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+  margin: 24px 0 30px;
+}
+
+.tabs .tab {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  width: 100%;
+  min-width: 0;
+  height: 190px;
+  padding: 18px;
+  overflow: hidden;
+  border: 1px solid #ffffff20;
+  border-radius: 16px;
+  color: #ffffff;
+  background-color: #14232a;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  box-shadow: inset 0 -100px 70px -20px #000c;
+  font-size: 16px;
+  font-weight: 700;
+  text-align: left;
+  white-space: normal;
+  isolation: isolate;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.tabs .tab::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(
+    180deg,
+    #06121a05 10%,
+    #06121a40 48%,
+    #06121af0 100%
+  );
+  pointer-events: none;
+}
+
+.tabs .tab[data-category="jawa"] {
+  background-image: url("cover/cover1.PNG");
+}
+
+.tabs .tab[data-category="barat"] {
+  background-image: url("cover/coverbarat1.jpg");
+}
+
+.tabs .tab[data-category="dj"] {
+  background-image: url("cover/coverviral1.jpg");
+}
+
+.tabs .tab[data-category="pop"] {
+  background-image: url("cover/coverviral2.jpg");
+}
+
+.tabs .tab.active {
+  border: 2px solid #00d4ff;
+  color: #ffffff;
+  box-shadow:
+    inset 0 -100px 70px -20px #000c,
+    0 0 18px #00d4ff30;
+}
+
+.tabs .tab:hover {
+  border-color: #00d4ff;
+  transform: translateY(-2px);
+}
+
+.tabs .tab:focus-visible {
+  outline: 2px solid #00d4ff;
+  outline-offset: 3px;
+}
+
+/* Tablet */
+@media (min-width: 651px) and (max-width: 900px) {
+  .tabs {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .tabs .tab {
+    height: 170px;
+  }
+}
+
+/* HP: kartu horizontal, geser ke kiri dan kanan */
+@media (max-width: 650px) {
+  .tabs {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 14px;
+    width: 100%;
+    margin: 20px 0 26px;
+    padding: 4px 2px 14px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .tabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .tabs .tab {
+    flex: 0 0 155px;
+    width: 155px;
+    height: 180px;
+    padding: 14px;
+    border-radius: 16px;
+    font-size: 15px;
+    scroll-snap-align: start;
+  }
+
+  .tabs .tab:hover {
+    transform: none;
+  }
+}
+/* ===== ANIMASI KHUSUS LOGO PNG ===== */
+
+.splash-logo img {
+  opacity: 0;
+  clip-path: inset(0 100% 0 0);
+  filter: drop-shadow(0 0 0 transparent);
+  animation: zwaraPngDraw 1.8s ease-in-out 0.2s forwards;
+}
+
+@keyframes zwaraPngDraw {
+  0% {
+    opacity: 0;
+    clip-path: inset(0 100% 0 0);
+    filter: drop-shadow(0 0 0 transparent);
+  }
+
+  70% {
+    opacity: 1;
+    clip-path: inset(0 0 0 0);
+    filter: drop-shadow(0 0 18px #00d4ff90);
+  }
+
+  100% {
+    opacity: 1;
+    clip-path: inset(0 0 0 0);
+    filter: drop-shadow(0 0 8px #00d4ff45);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .splash-logo img {
+    animation: none;
+    opacity: 1;
+    clip-path: none;
+    filter: none;
+  }
+}
+/* ===== ZWARA MUSIC — MOBILE FULL-SCREEN HERO ===== */
+
+@media (max-width: 650px) {
+  .hero {
+    box-sizing: border-box;
+    width: 100%;
+    min-height: calc(100svh - 72px);
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    align-content: center;
+    justify-items: center;
+    gap: 18px;
+    padding: 28px 20px 190px;
+    margin: 0;
+  }
+
+  /* Cover utama */
+  .hero-cover {
+    width: min(58vw, 230px);
+    max-width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    margin: 0 auto;
+    align-self: auto;
+  }
+
+  .hero-cover img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+  }
+
+  /* Panel informasi lagu */
+  .hero-info {
+    width: 100%;
+    max-width: 440px;
+    min-width: 0;
+    height: auto;
+    box-sizing: border-box;
+    padding: 20px;
+    margin: 0 auto;
+    border-radius: 20px;
+  }
+
+  .hero-info h1 {
+    font-size: clamp(22px, 6vw, 30px);
+    line-height: 1.2;
+    margin: 8px 0 12px;
+    overflow-wrap: anywhere;
+  }
+
+  .hero-info p {
+    line-height: 1.5;
+  }
+
+  .song-details {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 12px;
+    margin-top: 10px;
+  }
+
+  .song-bio {
+    margin-top: 12px;
+    padding-top: 12px;
+  }
+
+  .song-bio p {
+    font-size: 13px;
+    line-height: 1.5;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+  }
+
+  /* Pemutar bawah tetap mudah digunakan */
+  .player,
+  .music-player,
+  .mini-player {
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* Cegah elemen meluber ke luar layar */
+  .hero,
+  .hero-info,
+  .hero-cover {
+    min-width: 0;
+  }
+}
+
+@media (max-width: 380px) {
+  .hero {
+    gap: 14px;
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+
+  .hero-cover {
+    width: min(52vw, 190px);
+  }
+
+  .hero-info {
+    padding: 16px;
+  }
+
+  .hero-info h1 {
+    font-size: 22px;
+  }
+}
+/* ===== MOBILE: HERO TETAP, DAFTAR LAGU SCROLL ===== */
+
+@media (max-width: 650px) {
+  html,
+  body {
+    width: 100%;
+    height: 100%;
+    height: 100dvh;
+    margin: 0;
+    overflow: hidden;
+    overscroll-behavior: none;
+  }
+
+  body {
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Hero tidak ikut bergulir */
+  .hero {
+    position: relative;
+    flex: 0 0 auto;
+    min-height: 0;
+    height: calc(100dvh - 72px);
+    max-height: calc(100dvh - 72px);
+    box-sizing: border-box;
+    overflow: hidden;
+    padding: 20px 16px;
+    margin: 0;
+  }
+
+  /* Daftar lagu menjadi area scroll tersendiri */
+  #playlist {
+    min-height: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+    overscroll-behavior-y: contain;
+    -webkit-overflow-scrolling: touch;
+    touch-action: pan-y;
+  }
+}
+/* ===== MOBILE PLAYER FULL SCREEN ===== */
+
+.back-to-library {
+  display: none;
+}
+
+@media (max-width: 650px) {
+  .back-to-library {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 12px;
+    padding: 8px 12px;
+    border: 1px solid #ffffff25;
+    border-radius: 20px;
+    background: #ffffff0b;
+    color: #ffffff;
+    font-size: 13px;
+  }
+
+  /* Mode awal: koleksi tetap dapat dijelajahi */
+  body:not(.mobile-player-active) .hero {
+    display: none;
+  }
+
+  /* Mode pemutar: layar fokus pada hero */
+  body.mobile-player-active {
+    height: 100dvh;
+    overflow: hidden;
+    overscroll-behavior: none;
+  }
+
+  body.mobile-player-active .topbar,
+  body.mobile-player-active .message-ticker,
+  body.mobile-player-active .library {
+    display: none !important;
+  }
+
+  body.mobile-player-active .app,
+  body.mobile-player-active main {
+    height: 100%;
+    min-height: 0;
+    overflow: hidden;
+  }
+
+  body.mobile-player-active .hero {
+    position: fixed;
+    inset: 0 0 150px;
+    z-index: 50;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    height: auto;
+    max-height: none;
+    min-height: 0;
+    margin: 0;
+    padding: 20px;
+    overflow-y: auto;
+    border: 0;
+    background: #101010;
+  }
+
+  body.mobile-player-active .hero-cover {
+    width: min(65vw, 280px);
+    height: auto;
+    aspect-ratio: 1;
+    flex-shrink: 0;
+  }
+
+  body.mobile-player-active .hero-info {
+    width: 100%;
+    max-width: 440px;
+    height: auto;
+    min-height: 0;
+    padding: 0;
+    border: 0;
+    background: transparent;
+  }
+
+  body.mobile-player-active .player {
+    z-index: 60;
+  }
+}
+/* ===== FIX SCROLL DAFTAR LAGU MOBILE ===== */
+
+@media (max-width: 650px) {
+  body:not(.mobile-player-active) {
+    display: block;
+    height: auto;
+    min-height: 100dvh;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+  body:not(.mobile-player-active) .app {
+    display: block;
+    width: 100%;
+    height: auto;
+    min-height: 100dvh;
+    overflow: visible;
+    padding-bottom: 180px;
+  }
+
+  body:not(.mobile-player-active) main {
+    display: block;
+    width: 92%;
+    height: auto;
+    min-height: 0;
+    margin: 0 auto;
+    overflow: visible;
+  }
+
+  body:not(.mobile-player-active) .hero {
+    display: none !important;
+  }
+
+  body:not(.mobile-player-active) .library {
+    display: block;
+    height: auto;
+    min-height: 0;
+    overflow: visible;
+    padding-bottom: 24px;
+  }
+
+  body:not(.mobile-player-active) #playlist {
+    display: block;
+    height: auto;
+    max-height: none;
+    overflow: visible;
+    padding-bottom: 24px;
+  }
+
+  body:not(.mobile-player-active) .song-row {
+    min-height: 64px;
+  }
+
+  body:not(.mobile-player-active) .player {
+    position: fixed;
+    z-index: 100;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+}
