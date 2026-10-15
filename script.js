@@ -1094,26 +1094,4 @@ const miniPlayerInfo = document.querySelector(
 function openNowPlayingFromMiniPlayer() {
   if (!currentSong) return;
 
-  // Aktifkan kembali tampilan Now Playing di mobile.
-  if (window.matchMedia("(max-width: 650px)").matches) {
-    document.body.classList.add("mobile-player-active");
-  }
-}
 
-// Klik cover kecil di footer.
-if (miniPlayerCover) {
-  miniPlayerCover.style.cursor = "pointer";
-  miniPlayerCover.addEventListener(
-    "click",
-    openNowPlayingFromMiniPlayer
-  );
-}
-
-// Klik judul atau informasi lagu di footer.
-if (miniPlayerInfo) {
-  miniPlayerInfo.style.cursor = "pointer";
-  miniPlayerInfo.addEventListener(
-    "click",
-    openNowPlayingFromMiniPlayer
-  );
-}
