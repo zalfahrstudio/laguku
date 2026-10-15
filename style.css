@@ -1852,3 +1852,80 @@ main {
     right: 0;
   }
 }
+/* ===== FIX FINAL: AREA SCROLL DAFTAR LAGU MOBILE ===== */
+@media (max-width: 650px) {
+  html,
+  body {
+    width: 100%;
+    height: auto !important;
+    min-height: 100%;
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+  }
+
+  body:not(.mobile-player-active) {
+    display: block !important;
+    height: auto !important;
+    min-height: 100dvh;
+    overflow-y: auto !important;
+    overscroll-behavior-y: auto;
+  }
+
+  body:not(.mobile-player-active) .app {
+    display: block !important;
+    width: 100%;
+    height: auto !important;
+    min-height: 100dvh;
+    overflow: visible !important;
+    padding-bottom: 200px !important;
+  }
+
+  body:not(.mobile-player-active) main {
+    display: block !important;
+    height: auto !important;
+    min-height: 0;
+    overflow: visible !important;
+  }
+
+  body:not(.mobile-player-active) .library {
+    display: block !important;
+    height: auto !important;
+    min-height: 0;
+    max-height: none !important;
+    overflow: visible !important;
+    padding-bottom: 24px;
+  }
+
+  body:not(.mobile-player-active) #playlist {
+    display: block !important;
+    height: auto !important;
+    min-height: 0;
+    max-height: none !important;
+    overflow: visible !important;
+    padding-bottom: 24px;
+    margin-bottom: 0;
+  }
+
+  body:not(.mobile-player-active) #playlist .song-row {
+    display: flex;
+    height: auto !important;
+    min-height: 88px !important;
+    max-height: none !important;
+    overflow: visible !important;
+    box-sizing: border-box;
+  }
+
+  body:not(.mobile-player-active) #playlist .song-row > * {
+    min-height: 0;
+  }
+
+  /* Player tetap di bawah dan tidak menutupi
+     bagian akhir daftar saat halaman digulir */
+  body:not(.mobile-player-active) .player {
+    position: fixed;
+    z-index: 100;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+}
