@@ -969,7 +969,7 @@ function updateMediaSession() {
   try {
     navigator.mediaSession.metadata = new MediaMetadata({
       title: currentSong.title || "Zwara Music",
-      artist: categoryNames[category] || "Zwara Music",
+      artist: currentSong.artist || "Artis belum diisi",
       album: "Zwara Music",
       artwork: [
         {
