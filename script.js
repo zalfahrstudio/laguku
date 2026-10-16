@@ -147,11 +147,15 @@ const categoryCTAs = {
     title: "Your Music, Your Vibe ✨",
     subtitle: "Temukan aksesori untuk menemani lagu favoritmu."
   },
-  indonesia: {
+  pop: {
     title: "Setiap Lagu Punya Cerita 💙",
     subtitle: "Temukan suasana yang cocok untuk setiap lirik."
   },
   dj: {
+    title: "Selera Beda Tapi Musikmu Harus Jedag - Jedug! 🔥",
+    subtitle: "Berikan keseruan dengerin lagu ga pake orang baru",
+  }
+  break: {
     title: "Bass Naik, Mood Naik! 🔥",
     subtitle: "Lengkapi pengalaman menikmati setiap beat."
   }
