@@ -2457,5 +2457,30 @@ main {
   background-color: #101820;
 }
 
+.affiliate-product-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+}
+
+.affiliate-arrow-icon {
+  display: block;
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: transform 0.2s ease;
+}
+
+.affiliate-product-link:hover .affiliate-arrow-icon {
+  transform: translate(2px, -2px);
+}
+
+
 
 
