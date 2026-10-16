@@ -10,12 +10,12 @@
 
 const playlists = {
   jawa: [
-    ["DJ All In For You", "lagu1.mp3", "coverlagu1.PNG"],
-    ["DJ Tulus", "lagu2.mp3", "coverlagu2.PNG"],
-    ["DJ Sigar", "lagu3.mp3", "coverlagu3.PNG"],
-    ["DJ Denok", "lagu4.mp3", "coverlagu4.PNG"],
-    ["DJ Tresno Liyane", "lagu5.mp3", "coverlagu5.PNG"],
-    ["DJ Wirang", "lagu6.mp3", "coverlagu6.PNG"],
+    ["DJ All In For You", "lagu1.mp3", "coverlagu1.png"],
+    ["DJ Tulus", "lagu2.mp3", "coverlagu2.png"],
+    ["DJ Sigar", "lagu3.mp3", "coverlagu3.png"],
+    ["DJ Denok", "lagu4.mp3", "coverlagu4.png"],
+    ["DJ Tresno Liyane", "lagu5.mp3", "coverlagu5.png"],
+    ["DJ Wirang", "lagu6.mp3", "coverlagu6.png"],
     ["DJ Raiso Ngapusi", "lagu7.mp3", "coverlagu7.png"],
     ["DJ Maafkan Kesalahanku", "lagu8.mp3", "coverlagu8.png"],
     ["DJ Mencintaimu Dengan Ngeyel", "lagu9.mp3", "coverlagu9.png"],
