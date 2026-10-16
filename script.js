@@ -217,9 +217,6 @@ let loadVersion = 0;
 audio.volume = Number(volumeBar.value);
 
 function getSongs() {
-  
-
-function getSongs() {
   const songs = [...playlists[category]];
 
   try {
