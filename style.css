@@ -2481,6 +2481,81 @@ main {
   transform: translate(2px, -2px);
 }
 
+/* KONTROL KATALOG AFFILIATE DESKTOP */
+.affiliate-view-controls {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin: 0 0 14px;
+}
+
+.affiliate-view-controls button {
+  padding: 7px 12px;
+  border: 1px solid #34434f;
+  border-radius: 8px;
+  background: #171d24;
+  color: #b7c5d0;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.affiliate-view-controls button.active {
+  border-color: #00d4ff;
+  background: #10313a;
+  color: #00d4ff;
+}
+
+/* MODE RINGKAS */
+@media (min-width: 651px) {
+  .affiliate-section.affiliate-compact .affiliate-products {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .affiliate-section.affiliate-compact .affiliate-product {
+    display: grid;
+    grid-template-columns: 76px minmax(0, 1fr);
+    align-items: center;
+  }
+
+  .affiliate-section.affiliate-compact .affiliate-product-image-link {
+    width: 76px;
+    height: 76px;
+    aspect-ratio: auto;
+  }
+
+  .affiliate-section.affiliate-compact .affiliate-product-info {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 4px 12px;
+    padding: 10px;
+  }
+
+  .affiliate-section.affiliate-compact .affiliate-product-info h4 {
+    margin: 0;
+  }
+
+  .affiliate-section.affiliate-compact .affiliate-product-info p {
+    grid-column: 1;
+    margin: 0;
+  }
+
+  .affiliate-section.affiliate-compact .affiliate-product-link {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    min-height: 34px;
+  }
+}
+
+/* MOBILE TETAP MENGGUNAKAN LAYOUT LAMA */
+@media (max-width: 650px) {
+  .affiliate-view-controls {
+    display: none;
+  }
+}
+
+
 
 
 
