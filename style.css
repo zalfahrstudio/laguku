@@ -2421,3 +2421,20 @@ main {
   transform: translate(2px, -2px);
 }
 
+.affiliate-arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.affiliate-arrow svg {
+  width: 16px;
+  height: 16px;
+  display: block;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+
