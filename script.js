@@ -164,6 +164,19 @@ const notice = document.getElementById("notice");
 const coverImg = document.getElementById("coverImg");
 const miniCover = document.getElementById("miniCover");
 
+/* Placeholder cover sebelum lagu dipilih */
+if (coverImg) {
+  coverImg.onerror = null;
+  coverImg.src = fallbackCover("ZW");
+  coverImg.alt = "Sampul Zwara Music";
+}
+
+if (miniCover) {
+  miniCover.onerror = null;
+  miniCover.src = fallbackCover("ZW");
+  miniCover.alt = "Sampul Zwara Music";
+}
+
 if (miniCover) {
   miniCover.src = fallbackCover("ZW");
   miniCover.alt = "Sampul Zwara Music";
@@ -1239,4 +1252,29 @@ setAffiliateView(
     ? "compact"
     : "expanded"
 );
+
+/* ===== KONDISI AWAL PLAYER ZWARA ===== */
+if (!currentSong) {
+  document.body.classList.remove("has-selected-song");
+
+  if (songTitle) songTitle.textContent = "Pilih lagu";
+  if (songArtist) songArtist.textContent = "Pilih lagu dari koleksi musik";
+  if (songCategory) songCategory.textContent = "Belum ada lagu dipilih";
+  if (playingStatus) playingStatus.textContent = "Belum ada lagu diputar";
+
+  const songYearEl = document.getElementById("songYear");
+  const songBioEl = document.getElementById("songBio");
+
+  if (songYearEl) songYearEl.textContent = "—";
+  if (songBioEl) {
+    songBioEl.textContent =
+      "Pilih lagu untuk melihat informasi dan cerita lagunya.";
+  }
+
+  if (miniTitle) miniTitle.textContent = "Pilih lagu";
+  if (miniArtist) miniArtist.textContent = "Zwara Music";
+
+  renderAffiliateProducts(null);
+}
+
 
