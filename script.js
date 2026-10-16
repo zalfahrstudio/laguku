@@ -217,6 +217,76 @@ let loadVersion = 0;
 audio.volume = Number(volumeBar.value);
 
 function getSongs() {
+  
+function renderAffiliateProducts(song) {
+  if (
+    !affiliateSection ||
+    !affiliateProductsContainer ||
+    !affiliateCatalogLink
+  ) {
+    return;
+  }
+
+  if (!song) {
+    affiliateSection.hidden = true;
+    affiliateProductsContainer.replaceChildren();
+    return;
+  }
+
+  affiliateProductsContainer.replaceChildren();
+
+  affiliateProductsData.forEach((product) => {
+    const card = document.createElement("article");
+    card.className = "affiliate-card";
+
+    const imageLink = document.createElement("a");
+    imageLink.className = "affiliate-image-link";
+    imageLink.href = affiliateCatalogUrl;
+    imageLink.target = "_blank";
+    imageLink.rel = "sponsored noopener noreferrer";
+    imageLink.setAttribute(
+      "aria-label",
+      "Lihat katalog affiliate untuk " + product.name
+    );
+
+    const image = document.createElement("img");
+    image.className = "affiliate-image";
+    image.src = product.image;
+    image.alt = product.name;
+    image.loading = "lazy";
+    image.decoding = "async";
+
+    image.onerror = () => {
+      imageLink.hidden = true;
+    };
+
+    imageLink.appendChild(image);
+
+    const content = document.createElement("div");
+    content.className = "affiliate-card-content";
+
+    const title = document.createElement("h4");
+    title.textContent = product.name;
+
+    const description = document.createElement("p");
+    description.textContent = product.description;
+
+    const link = document.createElement("a");
+    link.className = "affiliate-product-link";
+    link.href = affiliateCatalogUrl;
+    link.target = "_blank";
+    link.rel = "sponsored noopener noreferrer";
+    link.textContent = "Lihat Produk ↗";
+
+    content.append(title, description, link);
+    card.append(imageLink, content);
+    affiliateProductsContainer.appendChild(card);
+  });
+
+  affiliateCatalogLink.href = affiliateCatalogUrl;
+  affiliateSection.hidden = false;
+}
+
   const songs = [...playlists[category]];
 
   try {
@@ -465,6 +535,7 @@ async function playSong(index, autoplay = true) {
   currentIndex = (index + songs.length) % songs.length;
   currentSong = songs[currentIndex];
   document.body.classList.add("has-selected-song");
+  renderAffiliateProducts(currentSong);
   const version = ++loadVersion;
 
   audio.pause();
