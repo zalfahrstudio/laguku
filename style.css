@@ -2437,4 +2437,25 @@ main {
   stroke-linejoin: round;
 }
 
+/* ===== ZWARA: MINI PLAYER COVER DESKTOP ===== */
+#miniCover {
+  display: block;
+  width: 48px;
+  height: 48px;
+  min-width: 48px;
+  min-height: 48px;
+  object-fit: cover;
+  object-position: center;
+  flex-shrink: 0;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #101820, #07566b);
+  border: 1px solid rgba(0, 212, 255, 0.25);
+}
+
+/* Area mini-player tetap gelap */
+#miniNowPlaying {
+  background-color: #101820;
+}
+
+
 
