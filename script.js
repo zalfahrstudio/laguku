@@ -1208,3 +1208,35 @@ link.append(linkText, arrowIcon);
 
 // Sembunyikan katalog sampai pengunjung memilih lagu.
 renderAffiliateProducts(null);
+
+const affiliateCompactBtn = document.getElementById("affiliateCompact");
+const affiliateExpandedBtn = document.getElementById("affiliateExpanded");
+const affiliateSectionEl = document.getElementById("affiliateSection");
+
+function setAffiliateView(view) {
+  if (!affiliateSectionEl) return;
+
+  const compact = view === "compact";
+  affiliateSectionEl.classList.toggle("affiliate-compact", compact);
+
+  affiliateCompactBtn?.classList.toggle("active", compact);
+  affiliateExpandedBtn?.classList.toggle("active", !compact);
+
+  affiliateCompactBtn?.setAttribute("aria-pressed", String(compact));
+  affiliateExpandedBtn?.setAttribute("aria-pressed", String(!compact));
+}
+
+affiliateCompactBtn?.addEventListener("click", () => {
+  setAffiliateView("compact");
+});
+
+affiliateExpandedBtn?.addEventListener("click", () => {
+  setAffiliateView("expanded");
+});
+
+setAffiliateView(
+  window.matchMedia("(min-width: 651px)").matches
+    ? "compact"
+    : "expanded"
+);
+
