@@ -1173,7 +1173,29 @@ function renderAffiliateProducts(song) {
     link.href = product.url;
     link.target = "_blank";
     link.rel = "noopener noreferrer sponsored";
-    link.textContent = "Lihat Produk ↗";
+    
+link.replaceChildren();
+
+const linkText = document.createElement("span");
+linkText.textContent = "Lihat Produk";
+
+const arrowIcon = document.createElementNS(
+  "http://www.w3.org/2000/svg",
+  "svg"
+);
+
+arrowIcon.setAttribute("viewBox", "0 0 24 24");
+arrowIcon.setAttribute("aria-hidden", "true");
+arrowIcon.setAttribute("class", "affiliate-arrow-icon");
+
+arrowIcon.innerHTML = `
+  <path d="M14 4h6v6"></path>
+  <path d="M20 4 10 14"></path>
+  <path d="M18 13v5a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h5"></path>
+`;
+
+link.append(linkText, arrowIcon);
+
 
     info.append(title, description, link);
     card.append(imageLink, info);
