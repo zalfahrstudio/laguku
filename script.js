@@ -218,6 +218,44 @@ audio.volume = Number(volumeBar.value);
 
 function getSongs() {
   
+
+function getSongs() {
+  const songs = [...playlists[category]];
+
+  try {
+    const savedOrder = JSON.parse(
+      localStorage.getItem("mymusic-order-" + category) || "[]",
+    );
+
+    songs.sort((a, b) => {
+      const indexA = savedOrder.indexOf(a[1]);
+      const indexB = savedOrder.indexOf(b[1]);
+
+      if (indexA === -1 && indexB === -1) return 0;
+      if (indexA === -1) return 1;
+      if (indexB === -1) return -1;
+
+      return indexA - indexB;
+    });
+  } catch (error) {
+    console.warn("Urutan playlist tidak dapat dibaca.", error);
+  }
+
+  return songs.map(([title, file, cover]) => {
+    const details = songDetails[title] || {};
+
+    return {
+      title,
+      file,
+      cover,
+      category,
+      artist: details.artist || "Artis belum diisi",
+      year: details.year || "",
+      bio: details.bio || "Belum ada deskripsi lagu.",
+    };
+  });
+}
+
 function renderAffiliateProducts(song) {
   if (
     !affiliateSection ||
@@ -244,10 +282,7 @@ function renderAffiliateProducts(song) {
     imageLink.href = affiliateCatalogUrl;
     imageLink.target = "_blank";
     imageLink.rel = "sponsored noopener noreferrer";
-    imageLink.setAttribute(
-      "aria-label",
-      "Lihat katalog affiliate untuk " + product.name
-    );
+    imageLink.setAttribute("aria-label", "Lihat " + product.name);
 
     const image = document.createElement("img");
     image.className = "affiliate-image";
@@ -287,40 +322,6 @@ function renderAffiliateProducts(song) {
   affiliateSection.hidden = false;
 }
 
-  const songs = [...playlists[category]];
-
-  try {
-    const savedOrder = JSON.parse(
-      localStorage.getItem("mymusic-order-" + category) || "[]",
-    );
-
-    songs.sort((a, b) => {
-      const indexA = savedOrder.indexOf(a[1]);
-      const indexB = savedOrder.indexOf(b[1]);
-
-      if (indexA === -1 && indexB === -1) return 0;
-      if (indexA === -1) return 1;
-      if (indexB === -1) return -1;
-
-      return indexA - indexB;
-    });
-  } catch (error) {
-    console.warn("Urutan playlist tidak dapat dibaca.", error);
-  }
-
-  return songs.map(([title, file, cover]) => {
-    const details = songDetails[title] || {};
-    return {
-      title,
-      file,
-      cover,
-      category,
-      artist: details.artist || "Artis belum diisi",
-      year: details.year || "",
-      bio: details.bio || "Belum ada deskripsi lagu.",
-    };
-  });
-}
 
 function getAudioPath(song) {
   return "musik/" + song.file;
