@@ -2706,6 +2706,117 @@ main {
   }
 }
 
+/* FIX ZWARA PICKS — MOBILE PRODUCT CATALOG */
+@media (max-width: 650px) {
+  #affiliateSection {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    overflow: hidden;
+    padding: 22px 16px;
+  }
+
+  #affiliateSection .affiliate-heading {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  #affiliateSection .affiliate-products {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 14px;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+  }
+
+  #affiliateSection .affiliate-product {
+    display: grid;
+    grid-template-columns: 104px minmax(0, 1fr);
+    align-items: center;
+    gap: 14px;
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    box-sizing: border-box;
+    padding: 12px;
+    border-radius: 16px;
+    overflow: hidden;
+  }
+
+  #affiliateSection .affiliate-product-image-link {
+    display: block;
+    width: 104px;
+    height: 104px;
+    min-width: 0;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    border-radius: 12px;
+  }
+
+  #affiliateSection .affiliate-product-image,
+  #affiliateSection .affiliate-product-image-link img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  #affiliateSection .affiliate-product-info {
+    min-width: 0;
+    width: 100%;
+    overflow-wrap: anywhere;
+  }
+
+  #affiliateSection .affiliate-product-title {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    line-height: 1.4;
+  }
+
+  #affiliateSection .affiliate-product-price {
+    margin-top: 6px;
+  }
+
+  #affiliateSection .affiliate-product-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 100%;
+    box-sizing: border-box;
+    margin-top: 10px;
+  }
+
+  #affiliateSection .affiliate-catalog-link {
+    display: flex;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 380px) {
+  #affiliateSection .affiliate-product {
+    grid-template-columns: 84px minmax(0, 1fr);
+    gap: 10px;
+    padding: 10px;
+  }
+
+  #affiliateSection .affiliate-product-image-link {
+    width: 84px;
+    height: 84px;
+  }
+}
+
+
 
 
 
