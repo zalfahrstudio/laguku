@@ -153,6 +153,29 @@ const songDetails = {
   },
 };
 
+/* ===== ZWARA MUSIC AFFILIATE ===== */
+
+// Ganti dengan URL katalog affiliate milikmu.
+const affiliateCatalogUrl = "https://shopee.co.id/";
+
+// Gambar contoh produk. Ganti dengan gambar produk
+// yang diizinkan oleh program affiliate terkait.
+const affiliateProductsData = [
+  {
+    name: "Wireless Earbuds",
+    description: "Temani musik favoritmu kapan saja.",
+    image:
+      "https://images.unsplash.com/photo-1606220945770-b5b6c2c55bf1?w=600&auto=format&fit=crop&q=80",
+  },
+  {
+    name: "Headphone Wireless",
+    description: "Nikmati musik dengan lebih nyaman.",
+    image:
+      "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=600&auto=format&fit=crop&q=80",
+  },
+];
+
+
 const audio = document.getElementById("audio");
 const playlistEl = document.getElementById("playlist");
 const searchInput = document.getElementById("searchInput");
@@ -168,6 +191,14 @@ const songArtist = document.getElementById("songArtist");
 const miniTitle = document.getElementById("miniTitle");
 const miniArtist = document.getElementById("miniArtist");
 const songCategory = document.getElementById("songCategory");
+const affiliateSection =
+  document.getElementById("affiliateSection");
+
+const affiliateProductsContainer =
+  document.getElementById("affiliateProducts");
+
+const affiliateCatalogLink =
+  document.getElementById("affiliateCatalogLink");
 const playingStatus = document.getElementById("playingStatus");
 const currentTimeEl = document.getElementById("currentTime");
 const durationEl = document.getElementById("duration");
