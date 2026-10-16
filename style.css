@@ -2393,4 +2393,31 @@ main {
     box-sizing: border-box;
   }
 }
+/* ===== IKON SVG TOMBOL AFFILIATE ===== */
+.affiliate-product-link,
+.affiliate-catalog-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.affiliate-product-link svg,
+.affiliate-catalog-link svg {
+  display: block;
+  width: 17px;
+  height: 17px;
+  flex-shrink: 0;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: transform 0.2s ease;
+}
+
+.affiliate-product-link:hover svg,
+.affiliate-catalog-link:hover svg {
+  transform: translate(2px, -2px);
+}
 
