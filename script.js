@@ -138,6 +138,41 @@ const categoryNames = {
   break: "Lagu Breakbeat",
 };
 
+const categoryCTAs = {
+  jawa: {
+    title: "Lagi Enak-Enaknya Dengerin Musik 🎧",
+    subtitle: "Biar makin asyik, lengkapi setup dan karakter musikmu."
+  },
+  barat: {
+    title: "Your Music, Your Vibe ✨",
+    subtitle: "Temukan aksesori untuk menemani lagu favoritmu."
+  },
+  indonesia: {
+    title: "Setiap Lagu Punya Cerita 💙",
+    subtitle: "Temukan suasana yang cocok untuk setiap lirik."
+  },
+  dj: {
+    title: "Bass Naik, Mood Naik! 🔥",
+    subtitle: "Lengkapi pengalaman menikmati setiap beat."
+  }
+};
+
+function updateCategoryCTA(category) {
+  const cta = categoryCTAs[category];
+  if (!cta) return;
+
+  const title = document.querySelector(
+    "#affiliateSection .affiliate-heading h3"
+  );
+  const subtitle = document.querySelector(
+    "#affiliateSection .affiliate-intro"
+  );
+
+  if (title) title.textContent = cta.title;
+  if (subtitle) subtitle.textContent = cta.subtitle;
+}
+
+
 // TAMBAHKAN DATA DETAIL LAGU DI SINI
 const songDetails = {
   "Kita Lewati Berdua - Overnight": {
@@ -453,7 +488,7 @@ async function playSong(index, autoplay = true) {
   currentIndex = (index + songs.length) % songs.length;
   currentSong = songs[currentIndex];
   document.body.classList.add("has-selected-song");
-
+  updateCategoryCTA(category);
   const version = ++loadVersion;
 
   audio.pause();
