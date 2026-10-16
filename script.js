@@ -492,7 +492,7 @@ async function playSong(index, autoplay = true) {
   currentIndex = (index + songs.length) % songs.length;
   currentSong = songs[currentIndex];
   document.body.classList.add("has-selected-song");
-  updateCategoryCTA(category);
+  
   const version = ++loadVersion;
 
   audio.pause();
