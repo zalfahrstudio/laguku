@@ -163,6 +163,12 @@ const notice = document.getElementById("notice");
 
 const coverImg = document.getElementById("coverImg");
 const miniCover = document.getElementById("miniCover");
+
+if (miniCover) {
+  miniCover.src = fallbackCover("ZW");
+  miniCover.alt = "Sampul Zwara Music";
+}
+
 const songTitle = document.getElementById("songTitle");
 const songArtist = document.getElementById("songArtist");
 const miniTitle = document.getElementById("miniTitle");
