@@ -2630,6 +2630,83 @@ main {
   }
 }
 
+/* ===== ZWARA MUSIC: MINI PLAYER DESKTOP PREMIUM ===== */
+@media (min-width: 651px) {
+  #miniNowPlaying {
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-width: 0;
+    padding: 10px 14px;
+    border: 1px solid rgba(0, 212, 255, 0.22);
+    border-radius: 14px;
+    background: linear-gradient(
+      135deg,
+      rgba(17, 29, 38, 0.96),
+      rgba(10, 17, 23, 0.96)
+    );
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.18);
+    overflow: hidden;
+    outline: none;
+    transition:
+      border-color 0.2s ease,
+      background 0.2s ease,
+      box-shadow 0.2s ease;
+  }
+
+  #miniNowPlaying:hover {
+    border-color: rgba(0, 212, 255, 0.55);
+    background: linear-gradient(
+      135deg,
+      rgba(19, 38, 49, 0.98),
+      rgba(10, 19, 26, 0.98)
+    );
+    box-shadow: 0 5px 22px rgba(0, 212, 255, 0.07);
+  }
+
+  #miniNowPlaying:focus-visible {
+    outline: 2px solid #00d4ff;
+    outline-offset: 2px;
+  }
+
+  #miniCover {
+    display: block;
+    flex: 0 0 48px;
+    width: 48px;
+    height: 48px;
+    box-sizing: border-box;
+    object-fit: cover;
+    border: 1px solid rgba(0, 212, 255, 0.25);
+    border-radius: 10px;
+    background: linear-gradient(135deg, #10232d, #07566b);
+    box-shadow: 0 0 12px rgba(0, 212, 255, 0.09);
+  }
+
+  #miniTitle,
+  #miniArtist {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  #miniTitle {
+    color: #f4f8fb;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 1.5;
+  }
+
+  #miniArtist {
+    margin-top: 2px;
+    color: #9eafbd;
+    font-size: 11px;
+    line-height: 1.4;
+  }
+}
+
+
 
 
 
